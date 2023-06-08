@@ -1,0 +1,1007 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<style>
+* {
+ 
+  box-sizing: border-box;
+  background-image: url();
+  background: #720026;
+  color: lightgray;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  font-size: 20px;
+  border: 1px solid #FFCE44;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  font-size: 20px;
+  display: inline-block;
+}
+
+button {
+  background-color: #A60036;
+  color: snow;
+  font-size: 20px;
+  padding: 15px 15% 15px 15%;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  
+}
+
+button:hover {
+  background-color: yellow;
+  color: black;
+}
+
+.container {
+  border-radius: 50px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+.form {
+  padding-right: 10%;
+  padding-left: 10%;
+}
+
+.h1{
+  padding-left: 25%;
+}
+
+.h4{
+  padding-left: 25%;
+}
+
+.h3{
+  padding-left: 10%;
+}
+.h2{
+  
+  text-align: center;
+  font-family: sans-serif;
+  
+}
+
+.col-75 {
+  float: left;
+  width: 50%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+</style>
+
+<body >
+  <center>
+  <img src="data:image/png;base64,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" 
+  alt="" style="height: 100px; width: 100px;">
+</center>
+<div class="typewriter">
+  <h1 class="h1"  >KENYA MEDICAL TRAINING COLLEGE</h1>
+</div>
+
+
+<h4 class="h4" ><marquee><i>Training for better health care</marquee></i></h4>
+
+<h3 class="h3" >Kindly input your KCSE scores below. On clicking ''check score'', courses you qualify for will be listed.</h3>
+
+<form class="form" id="myForm">
+  <div class="row">
+    <div class = "col-25">
+      <label for="mean_grade">Mean grade :</label>
+    </div>
+  <div class = "col-75">
+    <select name="mean_grade" id="mean_grade">
+  	<option value="">Select</option>
+    <option value=11>A</option>
+    <option value=10>A-</option>
+    <option value=9>B+</option>
+    <option value=8>B</option>
+    <option value=7>B-</option>
+    <option value=6>C+</option>
+    <option value=5>C</option>
+    <option value=4>C-</option>
+    <option value=3>D+</option>
+    <option value=2>D</option>
+    <option value=1>D-</option>
+    <option value=0>E</option>
+
+  </select> <br> <br>
+      </div>
+    </div>
+  
+
+  <div class="row">
+    <div class = "col-25">
+    <label for="kiswahili">Kiswahili :</label>
+    </div>
+
+   <div class = "col-75"> 
+  <select name="score_kis" id="score_kis">
+  	<option value="">Select</option>
+    <option value=12>A</option>
+    <option value=11>A-</option>
+    <option value=10>B+</option>
+    <option value=9>B</option>
+    <option value=8>B-</option>
+    <option value=7>C+</option>
+    <option value=6>C</option>
+    <option value=5>C-</option>
+    <option value=4>D+</option>
+    <option value=3>D</option>
+    <option value=2>D-</option>
+    <option value=1>E</option>
+
+  </select><br> <br>
+</div>
+</div>
+  
+  <div class="row">
+    <div class = "col-25">
+  <label for="english">English :</label>
+  </div>
+
+      <div class = "col-75">
+  <select name="score_eng" id="score_eng">
+  	<option value="">Select</option>
+    <option value=12>A</option>
+    <option value=11>A-</option>
+    <option value=10>B+</option>
+    <option value=9>B</option>
+    <option value=8>B-</option>
+    <option value=7>C+</option>
+    <option value=6>C</option>
+    <option value=5>C-</option>
+    <option value=4>D+</option>
+    <option value=3>D</option>
+    <option value=2>D-</option>
+    <option value=1>E</option>
+
+  </select><br> <br>
+  </div>
+    </div>
+  
+
+  <div class="row">
+    <div class = "col-25">
+    <label for="Biology">Biology :</label>
+    </div>
+
+      <div class = "col-75">
+  <select name="score_bio" id="score_bio">
+  	<option value="">Select</option>
+    <option value=12>A</option>
+    <option value=11>A-</option>
+    <option value=10>B+</option>
+    <option value=9>B</option>
+    <option value=8>B-</option>
+    <option value=7>C+</option>
+    <option value=6>C</option>
+    <option value=5>C-</option>
+    <option value=4>D+</option>
+    <option value=3>D</option>
+    <option value=2>D-</option>
+    <option value=1>E</option>
+    <option value="">I didn't do</option>
+  </select><br> <br>
+  </div>
+    </div>
+  
+ <div class="row">
+    <div class = "col-25">
+  <label for="Physics">Physics :</label>
+  </div>
+
+      <div class = "col-75">
+  <select name="score_phy" id="score_phy">
+  	<option value="">Select</option>
+    <option value=12>A</option>
+    <option value=11>A-</option>
+    <option value=10>B+</option>
+    <option value=9>B</option>
+    <option value=8>B-</option>
+    <option value=7>C+</option>
+    <option value=6>C</option>
+    <option value=5>C-</option>
+    <option value=4>D+</option>
+    <option value=3>D</option>
+    <option value=2>D-</option>
+    <option value=1>E</option>
+    <option value="">I didn't do</option>
+  </select><br> <br>
+  </div>
+    </div>
+  
+    <div class="row">
+    <div class = "col-25">
+    <label for="Chemistry">Chemistry :</label>
+    </div>
+    <div class = "col-75">
+  <select name="score_chem" id="score_chem">
+  	<option value="">Select</option>
+    <option value=12>A</option>
+    <option value=11>A-</option>
+    <option value=10>B+</option>
+    <option value=9>B</option>
+    <option value=8>B-</option>
+    <option value=7>C+</option>
+    <option value=6>C</option>
+    <option value=5>C-</option>
+    <option value=4>D+</option>
+    <option value=3>D</option>
+    <option value=2>D-</option>
+    <option value=1>E</option>
+    <option value="">I didn't do</option>
+  
+  </select><br> <br>
+  </div>
+    </div>
+  
+  <div class="row">
+    <div class = "col-25">
+  <label for="Mathematics">Mathematics :</label>
+  </div>
+
+      <div class = "col-75">
+  <select name="score_maths" id="score_maths">
+    <option value="">Select</option>
+    <option value=12>A</option>
+    <option value=11>A-</option>
+    <option value=10>B+</option>
+    <option value=9>B</option>
+    <option value=8>B-</option>
+    <option value=7>C+</option>
+    <option value=6>C</option>
+    <option value=5>C-</option>
+    <option value=4>D+</option>
+    <option value=3>D</option>
+    <option value=2>D-</option>
+    <option value=1>E</option>
+    
+  </select><br> <br>
+  </div>
+    </div>
+  
+    <div class="row">
+    <div class = "col-25">
+    <label for="History">History :</label>
+    </div>
+
+      <div class = "col-75">
+  <select name="score_hist" id="score_hist">
+    <option value="">Select</option>
+    <option value=12>A</option>
+    <option value=11>A-</option>
+    <option value=10>B+</option>
+    <option value=9>B</option>
+    <option value=8>B-</option>
+    <option value=7>C+</option>
+    <option value=6>C</option>
+    <option value=5>C-</option>
+    <option value=4>D+</option>
+    <option value=3>D</option>
+    <option value=2>D-</option>
+    <option value=1>E</option>
+    <option value="">I didn't do</option>
+  </select><br> <br>
+  </div>
+    </div>
+
+        <div class="row">
+    <div class = "col-25">
+    <label for="C.R.E">C.R.E :</label>
+    </div>
+
+      <div class = "col-75">
+  <select name="score_cre" id="score_cre">
+    <option value="">Select</option>
+    <option value=12>A</option>
+    <option value=11>A-</option>
+    <option value=10>B+</option>
+    <option value=9>B</option>
+    <option value=8>B-</option>
+    <option value=7>C+</option>
+    <option value=6>C</option>
+    <option value=5>C-</option>
+    <option value=4>D+</option>
+    <option value=3>D</option>
+    <option value=2>D-</option>
+    <option value=1>E</option>
+    <option value="">I didn't do</option>
+  </select><br> <br>
+  </div>
+    </div>
+
+        <div class="row">
+    <div class = "col-25">
+    <label for="I.R.E">I.R.E :</label>
+    </div>
+
+      <div class = "col-75">
+  <select name="score_ire" id="score_ire">
+    <option value="">Select</option>
+    <option value=12>A</option>
+    <option value=11>A-</option>
+    <option value=10>B+</option>
+    <option value=9>B</option>
+    <option value=8>B-</option>
+    <option value=7>C+</option>
+    <option value=6>C</option>
+    <option value=5>C-</option>
+    <option value=4>D+</option>
+    <option value=3>D</option>
+    <option value=2>D-</option>
+    <option value=1>E</option>
+    <option value="">I didn't do</option>
+  </select><br> <br>
+  </div>
+    </div>
+ 
+ <div class="row">
+    <div class = "col-25">
+  <label for="Agriculture">Agriculture :</label>
+  </div>
+
+      <div class = "col-75">
+  <select name="score_agric" id="score_agric">
+  	<option value="">Select</option>
+    <option value=12>A</option>
+    <option value=11>A-</option>
+    <option value=10>B+</option>
+    <option value=9>B</option>
+    <option value=8>B-</option>
+    <option value=7>C+</option>
+    <option value=6>C</option>
+    <option value=5>C-</option>
+    <option value=4>D+</option>
+    <option value=3>D</option>
+    <option value=2>D-</option>
+    <option value=1>E</option>
+    <option value="">I didn't do</option>
+  </select><br> <br>
+  </div>
+    </div>
+  
+  <div class="row">
+    <div class = "col-25">
+    <label for="Homescience">Home science :</label>
+    </div>
+
+      <div class = "col-75">
+  <select name="score_homsci" id="score_homsci">
+  	<option value="">Select</option>
+    <option value=12>A</option>
+    <option value=11>A-</option>
+    <option value=10>B+</option>
+    <option value=9>B</option>
+    <option value=8>B-</option>
+    <option value=7>C+</option>
+    <option value=6>C</option>
+    <option value=5>C-</option>
+    <option value=4>D+</option>
+    <option value=3>D</option>
+    <option value=2>D-</option>
+    <option value=1>E</option>
+    <option value="">I didn't do</option>
+  </select><br> <br>
+  </div>
+    </div>
+  
+  
+  <div class="row">
+    <div class = "col-25">
+  <label for="Businessstudies">Business Studies :</label>
+  </div>
+   <div class = "col-75">
+  <select name="score_bus" id="score_bus">
+  	<option value="">Select</option>
+    <option value=12>A</option>
+    <option value=11>A-</option>
+    <option value=10>B+</option>
+    <option value=9>B</option>
+    <option value=8>B-</option>
+    <option value=7>C+</option>
+    <option value=6>C</option>
+    <option value=5>C-</option>
+    <option value=4>D+</option>
+    <option value=3>D</option>
+    <option value=2>D-</option>
+    <option value=1>E</option>
+    <option value="">I didn't do</option>
+  </select><br> <br>
+   </div>
+    </div>
+  
+  <div class="row">
+    <div class = "col-25">
+    <label for="Geography">Geography :</label>
+    </div>
+
+      <div class = "col-75">
+  <select name="score_geo" id="score_geo">
+    <option value="">Select</option>
+    <option value=12>A</option>
+    <option value=11>A-</option>
+    <option value=10>B+</option>
+    <option value=9>B</option>
+    <option value=8>B-</option>
+    <option value=7>C+</option>
+    <option value=6>C</option>
+    <option value=5>C-</option>
+    <option value=4>D+</option>
+    <option value=3>D</option>
+    <option value=2>D-</option>
+    <option value=1>E</option>
+    <option value="">I didn't do</option>
+  </select><br> <br>
+  </div>
+    </div>
+
+
+
+  <div class="row">
+    <div class = "col-25">
+    <label for="Computer studies">Computer studies :</label>
+    </div>
+
+      <div class = "col-75">
+  <select name="score_compstud" id="score_compstud">
+    <option value="">Select</option>
+    <option value=12>A</option>
+    <option value=11>A-</option>
+    <option value=10>B+</option>
+    <option value=9>B</option>
+    <option value=8>B-</option>
+    <option value=7>C+</option>
+    <option value=6>C</option>
+    <option value=5>C-</option>
+    <option value=4>D+</option>
+    <option value=3>D</option>
+    <option value=2>D-</option>
+    <option value=1>E</option>
+    <option value="">I didn't do</option>
+  </select><br> <br>
+  </div>
+    </div>
+
+    <div class="row">
+    <div class = "col-25">
+    <label for="Biological sciences">Biological sciences :</label>
+  </div>
+  <div class = "col-75">
+  <select name="score_biosci" id="score_biosci">
+  	<option value="">Select</option>
+    <option value=12>A</option>
+    <option value=11>A-</option>
+    <option value=10>B+</option>
+    <option value=9>B</option>
+    <option value=8>B-</option>
+    <option value=7>C+</option>
+    <option value=6>C</option>
+    <option value=5>C-</option>
+    <option value=4>D+</option>
+    <option value=3>D</option>
+    <option value=2>D-</option>
+    <option value=1>E</option>
+    <option value="">I didn't do</option>
+  </select><br> <br>
+  </div>
+    </div>
+  
+<div class="row">
+    <div class = "col-25">
+  <label for="General science">General science :</label>
+  </div>
+
+      <div class = "col-75">
+  <select name="score_gensci" id="score_gensci">
+    <option value="">Select</option>
+    <option value=12>A</option>
+    <option value=11>A-</option>
+    <option value=10>B+</option>
+    <option value=9>B</option>
+    <option value=8>B-</option>
+    <option value=7>C+</option>
+    <option value=6>C</option>
+    <option value=5>C-</option>
+    <option value=4>D+</option>
+    <option value=3>D</option>
+    <option value=2>D-</option>
+    <option value=1>E</option>
+    <option value="">I didn't do</option>
+  </select><br> <br>
+  </div>
+    </div>
+
+  <div class="row">
+    <div class = "col-25">
+    <label for="Physical sciences">Physical sciences :</label>
+    </div>
+
+      <div class = "col-75">
+  <select name="score_physci" id="score_physci">
+  	<option value="">Select</option>
+    <option value=12>A</option>
+    <option value=11>A-</option>
+    <option value=10>B+</option>
+    <option value=9>B</option>
+    <option value=8>B-</option>
+    <option value=7>C+</option>
+    <option value=6>C</option>
+    <option value=5>C-</option>
+    <option value=4>D+</option>
+    <option value=3>D</option>
+    <option value=2>D-</option>
+    <option value=1>E</option>
+    <option value="">I didn't do</option>
+  </select><br> <br>
+  </div>
+    </div>
+  
+  <div class="row">
+    <div class = "col-25">
+    <label for="Economics">Economics :</label>
+    </div>
+
+      <div class = "col-75">
+  <select name="score_econ" id="score_econ">
+  	<option value="">Select</option>
+    <option value=12>A</option>
+    <option value=11>A-</option>
+    <option value=10>B+</option>
+    <option value=9>B</option>
+    <option value=8>B-</option>
+    <option value=7>C+</option>
+    <option value=6>C</option>
+    <option value=5>C-</option>
+    <option value=4>D+</option>
+    <option value=3>D</option>
+    <option value=2>D-</option>
+    <option value=1>E</option>
+    <option value="">I didn't do</option>
+  </select><br> <br>
+  </div>
+    </div>
+  
+  <div class="row">
+    <div class = "col-25">
+    <label for="Metal">Metal :</label>
+    </div>
+
+      <div class = "col-75">
+  <select name="score_metal" id="score_metal">
+  	<option value="">Select</option>
+    <option value=12>A</option>
+    <option value=11>A-</option>
+    <option value=10>B+</option>
+    <option value=9>B</option>
+    <option value=8>B-</option>
+    <option value=7>C+</option>
+    <option value=6>C</option>
+    <option value=5>C-</option>
+    <option value=4>D+</option>
+    <option value=3>D</option>
+    <option value=2>D-</option>
+    <option value=1>E</option>
+    <option value="">I didn't do</option>
+  </select><br> <br>
+  </div>
+    </div>
+  
+  
+  <div class="row">
+    <div class = "col-25">
+    <label for="technicaldrawing">Technical drawing :</label>
+    </div>
+      <div class = "col-75">
+  <select name="score_tecdraw" id="score_tecdraw">
+  	<option value="">Select</option>
+    <option value=12>A</option>
+    <option value=11>A-</option>
+    <option value=10>B+</option>
+    <option value=9>B</option>
+    <option value=8>B-</option>
+    <option value=7>C+</option>
+    <option value=6>C</option>
+    <option value=5>C-</option>
+    <option value=4>D+</option>
+    <option value=3>D</option>
+    <option value=2>D-</option>
+    <option value=1>E</option>
+    <option value="">I didn't do</option>
+  </select><br> <br>
+  </div>
+    </div>
+  
+  <div class="row">
+    <div class = "col-25">
+    <label for="Commerce">Commerce :</label>
+    </div>
+    <div class = "col-75">
+  <select name="score_comm" id="score_comm">
+  	<option value="">Select</option>
+    <option value=12>A</option>
+    <option value=11>A-</option>
+    <option value=10>B+</option>
+    <option value=9>B</option>
+    <option value=8>B-</option>
+    <option value=7>C+</option>
+    <option value=6>C</option>
+    <option value=5>C-</option>
+    <option value=4>D+</option>
+    <option value=3>D</option>
+    <option value=2>D-</option>
+    <option value=1>E</option>
+    <option value="">I didn't do</option>
+  </select><br> <br>
+  </div>
+    </div>
+  
+ 
+<div class="row">
+    <div class = "col-25">
+    <label for="Building Construction">Building Construction :</label>
+    </div>
+
+      <div class = "col-75">
+  <select name="score_build" id="score_build">
+    <option value="">Select</option>
+    <option value=12>A</option>
+    <option value=11>A-</option>
+    <option value=10>B+</option>
+    <option value=9>B</option>
+    <option value=8>B-</option>
+    <option value=7>C+</option>
+    <option value=6>C</option>
+    <option value=5>C-</option>
+    <option value=4>D+</option>
+    <option value=3>D</option>
+    <option value=2>D-</option>
+    <option value=1>E</option>
+    <option value="">I didn't do</option>
+  </select><br> <br>
+  </div>
+    </div>
+
+  <div class="row">
+    <div class = "col-25">
+    <label for="Electicity">Electricity :</label>
+    </div>
+
+      <div class = "col-75">
+  <select name="score_elect" id="score_elect">
+  	<option value="">Select</option>
+    <option value=12>A</option>
+    <option value=11>A-</option>
+    <option value=10>B+</option>
+    <option value=9>B</option>
+    <option value=8>B-</option>
+    <option value=7>C+</option>
+    <option value=6>C</option>
+    <option value=5>C-</option>
+    <option value=4>D+</option>
+    <option value=3>D</option>
+    <option value=2>D-</option>
+    <option value=1>E</option>
+    <option value="">I didn't do</option>
+  </select><br> <br>
+  </div>
+    </div>
+
+    <div class="row">
+    <div class = "col-25">
+    <label for="Wood work">Wood work :</label>
+    </div>
+
+      <div class = "col-75">
+  <select name="score_wood" id="score_wood">
+    <option value="">Select</option>
+    <option value=12>A</option>
+    <option value=11>A-</option>
+    <option value=10>B+</option>
+    <option value=9>B</option>
+    <option value=8>B-</option>
+    <option value=7>C+</option>
+    <option value=6>C</option>
+    <option value=5>C-</option>
+    <option value=4>D+</option>
+    <option value=3>D</option>
+    <option value=2>D-</option>
+    <option value=1>E</option>
+    <option value="">I didn't do</option>
+  </select><br> <br>
+  </div>
+    </div>
+  
+  <button type="button" onclick="myFunction()"> | Check courses |</button> 
+  <button type="button" onclick="resetForm()" value="Reset form" >| Clear scores |</button>
+</form>
+
+<br/><br/>
+<p id="dol" class="h1">(Courses you qualified for will be listed here)</p>
+<br/>
+
+<br/>
+<p  class="h2">Developed by KMTC Nakuru Campus</p>
+<p  class="h2">IT department | 2023</p>
+
+
+
+<script>
+function resetForm() {
+  document.getElementById("myForm").reset();
+  document.getElementById("dol").innerHTML = "";
+}
+
+function myFunction() {
+
+var score_mean =    document.getElementById("mean_grade").value;    
+var score_eng =     document.getElementById("score_eng").value;     
+var score_kis =     document.getElementById("score_kis").value;     
+var score_bio =     document.getElementById("score_bio").value;       
+var score_chem =    document.getElementById("score_chem").value;
+var score_phy =     document.getElementById("score_phy").value;
+var score_maths =   document.getElementById("score_maths").value;
+var score_agric =   document.getElementById("score_agric").value; 
+var score_gensci =  document.getElementById("score_gensci").value;
+var score_geo =     document.getElementById("score_geo").value; 
+var score_homsci =  document.getElementById("score_homsci").value; 
+var score_bus =     document.getElementById("score_bus").value;
+var score_biosci =  document.getElementById("score_biosci").value;
+var score_econ =    document.getElementById("score_econ").value;
+var score_physci =  document.getElementById("score_physci").value;
+var score_comm =    document.getElementById("score_comm").value;
+var score_compstud= document.getElementById("score_compstud").value;
+var score_metal =   document.getElementById("score_metal").value; 
+var score_tecdraw = document.getElementById("score_tecdraw").value;
+var score_elect =   document.getElementById("score_elect").value; 
+var score_wood =    document.getElementById("score_wood").value; 
+var score_hist =    document.getElementById("score_hist").value; 
+var score_cre =     document.getElementById("score_cre").value; 
+var score_ire =     document.getElementById("score_ire").value; 
+var score_build=    document.getElementById("score_build").value;
+  
+
+const qualified_courses = [];
+//Diploma in Dental Technology
+if (score_mean > 4 && (score_eng > 5 || score_kis >5) && (score_phy> 5 || score_physci >5) && (score_bio > 4 || score_biosci >4) &&
+ (score_phy > 4 || score_physci > 4 || score_chem > 4 || score_maths >4) ){
+qualified_courses.push("Diploma in Dental Technology");}
+
+//Diploma in Optometry
+if (score_mean > 4 && (score_eng > 5 || score_kis >5) && score_maths > 5 &&(score_bio > 5 || score_biosci > 5 || score_phy > 5 || score_physci >5 )){
+qualified_courses.push("Diploma in Optometry");}
+
+//Diploma in Medical engineering
+if (score_mean > 4 && (score_eng > 5 || score_kis >5) && score_maths > 5 && (score_phy> 5 || score_physci >5) &&(score_bio > 4|| score_biosci > 4 || score_chem >4 || score_elect >4 || score_metal> 4 || score_tecdraw >4)){
+qualified_courses.push("Diploma in Medical engineering");}
+
+//Certificate in Medical engineering
+if (score_mean > 3 && (score_eng > 4 || score_kis >4) && score_maths > 2 && (score_phy> 1 || score_physci >1) &&(score_bio > 2|| score_biosci > 2 || score_chem >2 || score_elect >2 || score_metal> 2 || score_tecdraw >2)){
+qualified_courses.push("Certificate in Medical engineering");}
+
+//Diploma in Occopational Theraphy
+if (score_mean > 4 && (score_eng > 5 || score_kis >5) && (score_bio > 4|| score_biosci > 4) &&(score_phy > 4|| score_physci > 4 || score_chem >4 || score_maths >4 || score_agric> 4 || score_homsci >4)){
+qualified_courses.push("Diploma in Occopational Theraphy");}
+
+//Diploma in Orthopaedic Technology(Orthotics
+if (score_mean > 4 && (score_eng > 5 || score_kis >5)  && (score_bio > 4|| score_biosci > 4) && (score_phy > 3|| score_physci > 3 || score_chem >3 || score_maths >3 || score_metal> 2 || score_tecdraw >2 || score_wood>2)){
+
+qualified_courses.push("Diploma in Orthopaedic Technology(Orthotics)");}
+
+//Diploma in Physiotheraphy
+if (score_mean > 4 && (score_eng > 5 || score_kis >5)  && score_bio > 4 && (score_phy > 4|| score_physci > 4 || score_chem >4 || score_maths >4 )){
+
+qualified_courses.push("Diploma in Physiotheraphy");}
+
+//Diploma in Health Promotion
+if (score_mean > 4 && (score_eng > 5 || score_kis >5)  && (score_bio > 4|| score_biosci > 4) && (score_phy > 3|| score_physci > 3 || score_chem >3 || score_maths >3)){
+
+qualified_courses.push("Diploma in Health Promotion");}
+
+//Certificate in Community Health Assistant
+if (score_mean > 4 && (score_eng > 3 || score_kis >3)  && (score_bio > 2|| score_biosci > 2) && (score_phy > 2|| score_physci > 2 || score_chem >2 || score_maths >2 || score_agric>2 || score_homsci>2)){
+
+qualified_courses.push("Certificate in Community Health Assistant");}
+
+
+//Diploma in Community Oral Health
+if (score_mean > 4 && (score_eng > 5 || score_kis >5)  && (score_bio > 5|| score_biosci > 5) && (score_phy > 4|| score_physci > 4 || score_chem >4 || score_maths >4)){
+
+qualified_courses.push("Diploma in Community Oral Health");}
+
+
+//Diploma in Nutrition and dietetics
+if (score_mean > 3 && (score_eng > 3 || score_kis >3)  && (score_bio > 3|| score_biosci > 3) && (score_physci > 3 || score_chem >3) &&(   score_phy> 2 || score_maths >2 || score_gensci>2 || score_agric>2 ||score_homsci>2)){
+
+qualified_courses.push("Diploma in Nutrition and dietetics");}
+
+//Certificae in Nutrition and dietetics
+if (score_mean > 2 && (score_eng > 3 || score_kis >3)  && (score_bio > 2|| score_biosci > 2) && (score_physci > 2 || score_chem >2) &&(   score_phy> 2 || score_maths >2 || score_gensci>2 || score_agric>2 ||score_homsci>2)){
+
+qualified_courses.push("Certificate in Nutrition and dietetics");}
+
+//Diploma in Public Health
+if (score_mean > 4 && (score_eng > 5 || score_kis >5)  && (score_bio > 5|| score_biosci > 5) && score_maths >4 && (score_phy > 4|| score_physci > 4 || score_chem >4 )){
+
+qualified_courses.push("Diploma in Public Health");}
+
+//Diploma in Medical social worker
+if (score_mean > 4 && (score_eng > 5 || score_kis >5)  && (score_bio > 4|| score_biosci > 4)  && (score_maths >4 ||score_phy > 4|| score_physci > 4 || score_chem >4 || score_homsci>4 || score_agric>4 || score_bus>4 || score_geo>4 || score_hist>4 || score_cre>4 || score_ire>4)){
+
+qualified_courses.push("Diploma in Medical social worker");} 
+
+
+//Certificate in  Public Health
+if (score_mean > 3 && (score_eng > 4 || score_kis >4)  && (score_bio > 3|| score_biosci > 3) && score_maths >2 && (score_phy > 2|| score_agric > 2 || score_chem >2 || score_tecdraw>2 ||score_elect>2 ||score_build>2)){
+
+qualified_courses.push("Certificate in Public Health");}
+
+//Diploma in Radiography and imaging (MIS))
+if (score_mean > 4 && (score_eng > 5 || score_kis >5)  && (score_bio > 5|| score_biosci > 5) && (score_phy > 5|| score_physci > 5) && (score_chem >4 || score_maths >4)){
+
+qualified_courses.push("Diploma in Radiography and imaging(MIS)");}
+
+
+//Diploma in Medical laboratory sciences
+if (score_mean > 4 && (score_eng > 5 || score_kis >5)  && (score_bio > 5|| score_biosci > 5) && (score_chem >5 || score_physci > 5) && (score_phy > 5 || score_maths >5)){
+
+qualified_courses.push("Diploma in Medical Laboratory science");}
+
+//Diploma in Health Records and Information Technology
+if (score_mean > 4 && (score_eng > 5 || score_kis >5)  && score_maths>4 && (score_bio > 3|| score_biosci > 3) && (score_chem >4 || score_physci > 4 || score_phy > 4 || score_compstud >4 ||score_agric>4 || score_homsci >4 || score_geo>4 || score_comm>4 || score_bus>4)){
+
+qualified_courses.push("Diploma in Health Records and Information Technology");}
+
+
+//Certificate in Health Records and Information Technology
+if (score_mean > 3 && (score_eng > 4 || score_kis >4)  && score_maths>1 && (score_bio > 2|| score_biosci > 2) && (score_chem >3 || score_physci > 3 || score_phy > 3 || score_compstud >3 ||score_agric>3 || score_homsci >3 || score_geo>3 || score_comm>3 || score_bus>3)){
+
+qualified_courses.push("Certificate in Health Records and Information Technology");}
+
+//Diploma in Pharmacy
+if (score_mean > 4 && (score_eng > 5 || score_kis >5)  && (score_bio > 5|| score_biosci > 5) && (score_chem > 5|| score_physci > 5) && (score_phy>5 || score_maths >5)){
+
+qualified_courses.push("Diploma in Pharmacy");}
+
+
+//Diploma in community health nursing
+if (score_mean > 4 && (score_eng > 5 || score_kis >5)  && (score_bio > 5|| score_biosci > 5) && (score_maths >4 || score_phy > 4|| score_physci > 4 || score_chem >4 )){
+
+qualified_courses.push("Diploma in Community Health Nursing");}
+
+//Diploma in Kenya Registered Nursing and mid-wifery
+if (score_mean > 4 && (score_eng > 5 || score_kis >5)  && (score_bio > 5|| score_biosci > 5) && (score_maths >4 || score_phy > 4|| score_physci > 4 || score_chem >4 )){
+
+qualified_courses.push("Diploma in Kenya Registered Nursing and mid-wifery");}
+
+
+//Diploma in Kenya Registered Nursing mental health and psychiatry
+if (score_mean > 4 && (score_eng > 5 || score_kis >5)  && (score_bio > 5|| score_biosci > 5) && (score_maths >4 || score_phy > 4|| score_physci > 4 || score_chem >4 )){
+
+qualified_courses.push("Diploma in Kenya Registered Nursing mental health and psychiatry");}
+
+//Diploma in Heath counselling
+if (score_mean > 4 && (score_eng > 5 || score_kis >5)  && (score_bio > 3|| score_biosci > 3) && (score_cre>4 || score_ire>4 ||score_hist>4 )){
+
+qualified_courses.push("Diploma in Health counselling");}
+
+
+//Certificate in community health nursing
+if (score_mean > 3 && (score_eng > 4 || score_kis >4)  && (score_bio > 4|| score_biosci > 4) && (score_maths >3 || score_phy > 3|| score_physci > 3 || score_chem >3 )){
+
+qualified_courses.push("Certificate in Community Health Nursing");}
+
+
+//Diploma in Clinical medicine and surgery
+if (score_mean > 4 && (score_eng > 5 || score_kis >5)  && (score_bio > 5|| score_biosci > 5) && (score_physci > 4 || score_chem >4) && (score_maths >4 || score_phy > 4 || score_physci > 4)){
+
+qualified_courses.push("Diploma in Clinical medicine and surgery");}
+
+//Certificate medical technician
+if (score_mean > 3){
+
+qualified_courses.push("Certificate in Medical Emergency Technician (1 year)");}
+
+//Diploma in orthopaedic and Trauma medicine
+if (score_mean > 4 && (score_eng > 5 || score_kis >5)  && (score_bio > 5|| score_biosci > 5)  && (score_maths >4 || score_phy > 4 || score_physci > 4) && (score_physci > 4 || score_chem >4 ||score_phy >4 ||score_homsci>4 || score_agric>4 )){
+
+qualified_courses.push("Diploma in orthopaedic and Trauma medicine");}
+
+
+//Certificate in orthopaedic and Trauma medicine
+if (score_mean > 3 && (score_eng > 4 || score_kis >4)  && (score_bio > 4 || score_biosci > 4)  && (score_maths >3 || score_physci > 3 || score_chem >3 ||score_phy >3 ||score_homsci>3 || score_agric>3 )){
+
+qualified_courses.push("Certificate in orthopaedic and Trauma medicine");}
+
+//certificate in mortuary science
+if (score_mean > 3 ){
+
+  qualified_courses.push("Diploma in Mortuary Science");}
+
+//diploma in community health
+if (score_mean > 4 && (score_eng > 4 || score_kis >4) && (score_bio > 3 || score_biosci > 3) && (score_maths >2 || score_chem > 2 || score_homsci >2 || score_agric >2 ||score_phy >2 || score_physci >2)){
+
+  qualified_courses.push("Diploma in Community Health")
+}
+
+
+//else {
+//qualified_courses.push("You are not qualified for any courses");}
+
+//document.getElementById("dol").innerHTML =  score_mean+score_eng+score_kis+score_bio+score_chem+score_phy+score_maths+score_agric + score_gensci + score_geo +score_homsci+score_bus +score_biosci+score_econ+score_physci +score_comm+score_compstud+score_metal+score_tecdraw+score_elect + score_wood;
+
+
+var qLen = qualified_courses.length;
+if (qLen > 0){
+  var text = "You qualify for the following courses; " +"<br>" +"<ol>";
+  for (let i = 0; i < qLen; i++) {
+  text += "<li>" + qualified_courses[i] + "</li>";
+}
+text += "</ol>";
+
+document.getElementById("dol").innerHTML = text;
+//document.getElementById("dol").innerHTML =  qualified_courses;
+} else
+{ document.getElementById("dol").innerHTML = "Oooooops! You are not qualified for any courses";
+}
+
+
+}
+
+
+</script>
+<br><br><br><br><br><br><br><br>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
